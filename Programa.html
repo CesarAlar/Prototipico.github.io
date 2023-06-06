@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ae1d5cff5f.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Programa</title>
+</head>
+<body>
+    <div class="contenedor">
+        <nav class="navegacion">
+            <a href="index.html"><i class="far fa-user"></i></a>
+            <a href="Presentacion.html"><i class="far fa-address-card"></i></a>
+            <a href="Programa.html"><i class="fas fa-chart-bar"></i></a>
+            <a href="Materias.html"><i class="fas fa-laptop-code"></i></a>
+        </nav>
+
+        <div class="contenido-Pres">
+
+            <div class="programa">
+
+                <div class="datos">
+                    <div class="mensaje"></div>
+                    <h2>Calculo de la unflacion en los productos </h2>
+                    <form class="formulario">
+                        <div class="inflacionAplicada">
+                            <h3>Inflacion Para el 2023</h3>
+                        </div>
+                        <div class="precio pre1">
+                            <label for="producto1">Nombre y costo del producto</label>
+                            <input required type="text"  placeholder="Nombre del Produco"  id="producto1">
+                            <input required type="number" class="cantidad1" value="0">
+                        </div>
+                        <div class="precio pre2">
+                            <label for="producto2">Nombre y costo del producto</label>
+                            <input required type="text"  placeholder="Nombre del Produco"  id="producto2">
+                            <input required type="number" class="cantidad2" value="0">
+                        </div>
+                        
+                        <input type="submit" value="Calcular">
+                    </form>
+                </div>
+
+                <div class="inflacion">
+                    <h2>Aplicacion de la inflación a los productos</h2>
+                    <div class="resultados"></div>
+                </div>
+
+            </div>
+
+            <div class="recomendaciones"></div>
+            <div class="notas"></div>
+
+
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
