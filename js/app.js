@@ -15,20 +15,7 @@ document.addEventListener('DOMContentLoaded',() => {
 let nuevo = []
 let nuevo2 = []
 let campos = {}
-const meses22 = {
-    enero22 : 7.07,
-    febrero22 : 7.28,
-    marzo22 : 7.45,
-    abril22 : 7.68,
-    mayo22 : 7.65,
-    junio22 : 7.99,
-    julio22 : 8.15,
-    agosto22 : 8.7,
-    septiembre22 : 8.7,
-    octubre22 : 8.41,
-    noviembre22 : 7.8,
-    diciembre22 : 7.82
-}
+const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
 const meses23 =[7.91,7.62,6.85,6.25,6.22,6.2,6.18,6.17,6.15,6.14,6.12,6.11]
 
 function formu(e) {
@@ -57,11 +44,6 @@ function formu(e) {
     }
     
     year23(campos,precios)
-    // Graficas(produ1,produ2,nuevo,nuevo2)
-    // campos.produ1 = ''
-    // campos.produ2 = ''
-    // precios.canti1 = 0
-    // precios.canti2 = 0
 }
 
 function year23(campos,precios) {
@@ -85,7 +67,8 @@ function year23(campos,precios) {
     const  div2 = document.createElement('div');
     const  h32 = document.createElement('h3');
     const  p = document.createElement('p');
-    p.innerHTML = `Nota: Se recuerda que los precios se muestran, son producto de la PREDICCION de la INFLACION de la red neuronal que se creo para la materia de Inteligencia artificial <a href=${link} target="_blanket">Red Neuronal</a>.`;
+    // p.innerHTML = `Nota: Se recuerda que los precios se muestran, son producto de la PREDICCION de la INFLACION de la red neuronal que se creo para la materia de Inteligencia artificial <a href=${link} target="_blanket">Red Neuronal</a>.`;
+    p.innerHTML = `En los resultados de la tabla anterior podemos observar un decremento en el precio de ${produ1} y de ${produ2}. <br> A los precios originales se les aplicó la inflación de los meses de todo este año, los cuales son producto de una <a href="${link}" target="_blanket">Red neuronal</a> que genero las predicciones de las inflaciones.`;
     p.classList.add('nota')
     aqui.classList.add('datos')
     h3.textContent = `${produ1}`
@@ -94,12 +77,12 @@ function year23(campos,precios) {
     div2.appendChild(h32)
     for (let i = 0; i < nuevo.length; i++) {
         const p = document.createElement('p');
-        p.textContent =  `El mes${i +1} :` + nuevo[i]
+        p.textContent =  meses[i] + ':' + nuevo[i]
         div1.appendChild(p)
     }
     for (let i = 0; i < nuevo2.length; i++) {
         const p = document.createElement('p');
-        p.textContent =  `El mes${i +1} :` + nuevo2[i]
+        p.textContent =  meses[i] + ':' + nuevo2[i]
         div2.appendChild(p)
     }
     
@@ -113,65 +96,6 @@ function year23(campos,precios) {
    
 }
 
-function Graficas(campos,nuevo,nuevo2) {
-    const {produ1,produ2} = campos
-    const ctx = document.querySelector('.myChart');
-    const ctx2 = document.querySelector('.myChart2');
-    const reco = document.querySelector('.recomendaciones');
-    
-    const texto = document.createElement('div')
-    const graf1 = document.createElement('div')
-    const graf2 = document.createElement('div')
-    const canvas1 = document.createElement('canvas')
-    const canvas2 = document.createElement('canvas')
-    texto.classList.add('texto')
-    graf1.classList.add('grafica','graf1')
-    graf2.classList.add('grafica','graf2')
-    canvas1.classList.add('myChart')
-    canvas2.classList.add('myChart2')
-
-                      
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio','Julio','Agosto','Septiembre','Noviembre','Diciembre'],
-        datasets: [{
-            label: `${produ1} con precio con inflacion`,
-            data: nuevo,
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1
-        }]
-        },
-        options: {
-        scales: {
-            y: {
-            beginAtZero: true
-            }
-        }
-        }
-    });
-    new Chart(ctx2, {
-        type: 'bar',
-        data: {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio','Julio','Agosto','Septiembre','Noviembre','Diciembre'],
-        datasets: [{
-            label: `${produ2} con precio con inflacion`,
-            data: nuevo2,
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1
-        }]
-        },
-        options: {
-        scales: {
-            y: {
-            beginAtZero: true
-            }
-        }
-        }
-    });
-}
 
 function Graf(campos,nuevo,nuevo2) {
     const {produ1,produ2} = campos
@@ -208,15 +132,38 @@ function Graf(campos,nuevo,nuevo2) {
         datasets: [{
             label: `${produ1} con precio con inflacion`,
             data: nuevo,
-            backgroundColor: ['#B0F5FF','#B0FFBB','#B0FFE2','#B0F5FF','#B0FFBB','#B0FFE2','#B0F5FF','#B0FFBB','#B0FFE2','#B0F5FF','#B0FFBB','#B0FFE2',],
-            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: ['rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)'],
+            borderColor: ['rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            'rgb(153, 102, 255)','rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            'rgb(153, 102, 255)',],
             borderWidth: 1
         }]
         },
         options: {
         scales: {
             y: {
-            beginAtZero: true
+            beginAtZero: true,
+            min: nuevo[11] - 0.1,
+            max: nuevo[0],
             }
         }
         }
@@ -228,15 +175,38 @@ function Graf(campos,nuevo,nuevo2) {
         datasets: [{
             label: `${produ2} con precio con inflacion`,
             data: nuevo2,
-            backgroundColor: ['#B0F5FF','#B0FFBB','#B0FFE2','#B0F5FF','#B0FFBB','#B0FFE2','#B0F5FF','#B0FFBB','#B0FFE2','#B0F5FF','#B0FFBB','#B0FFE2',],
-            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: ['rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)'],
+            borderColor: ['rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            'rgb(153, 102, 255)','rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            'rgb(153, 102, 255)'],
             borderWidth: 1
         }]
         },
         options: {
         scales: {
             y: {
-            beginAtZero: true
+            beginAtZero: true,
+            min: nuevo2[11] - 0.1,
+            max: nuevo2[0] ,
             }
         }
         }
