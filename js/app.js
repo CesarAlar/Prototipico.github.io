@@ -7,9 +7,22 @@ const producto2 = document.getElementById('producto2');
 const cantidad1 = document.querySelector('.cantidad1');
 const cantidad2 = document.querySelector('.cantidad2');
 
+const prog = document.querySelector('.fa-chart-bar');
+const mat = document.querySelector('.fa-laptop-code');
+const pres = document.querySelector('.fa-address-card');
+const user = document.querySelector('.fa-user');
+
+if(window.location.href.includes('Programa.html')){
+    prog.style.color = 'rgb(65, 246, 113)';
+}else if (window.location.href.includes('Materias.html')) {
+    mat.style.color = 'rgb(65, 246, 113)';
+}else if (window.location.href.includes('Presentacion.html')) {
+    pres.style.color = 'rgb(65, 246, 113)';
+}else{
+    user.style.color = 'rgb(65, 246, 113)';
+}
 document.addEventListener('DOMContentLoaded',() => { 
     formulario.addEventListener('submit', formu)   
-    formulario.addEventListener('submit', Graficas)   
 })
 
 let nuevo = []
@@ -42,13 +55,12 @@ function formu(e) {
         }
         return;
     }
-    
     year23(campos,precios)
 }
 
 function year23(campos,precios) {
     const {produ1,produ2} = campos;
-    
+     
     
     for (let i = 0; i < meses23.length; i++) {
         nuevo[i] = Number((precios.canti1 + (precios.canti1 * (meses23[i] / 100) )).toFixed(2))
@@ -67,7 +79,6 @@ function year23(campos,precios) {
     const  div2 = document.createElement('div');
     const  h32 = document.createElement('h3');
     const  p = document.createElement('p');
-    // p.innerHTML = `Nota: Se recuerda que los precios se muestran, son producto de la PREDICCION de la INFLACION de la red neuronal que se creo para la materia de Inteligencia artificial <a href=${link} target="_blanket">Red Neuronal</a>.`;
     p.innerHTML = `En los resultados de la tabla anterior podemos observar un decremento en el precio de ${produ1} y de ${produ2}. <br> A los precios originales se les aplicó la inflación de los meses de todo este año, los cuales son producto de una <a href="${link}" target="_blanket">Red neuronal</a> que genero las predicciones de las inflaciones.`;
     p.classList.add('nota')
     aqui.classList.add('datos')
@@ -91,7 +102,6 @@ function year23(campos,precios) {
     resultados.appendChild(aqui)
     resultados.appendChild(p)
     // -----------------------------------GRAFICAS -----------------------------------
-    // Graficas(campos,nuevo,nuevo2)
     Graf(campos,nuevo,nuevo2)
    
 }

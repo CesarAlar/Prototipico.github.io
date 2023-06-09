@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ae1d5cff5f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Prototipico</title>
+</head>
+<body>
+    <div class="contenedor">
+        <nav class="navegacion">
+            <a href="index.html"><i class="far fa-user"></i></a>
+            <a href="Presentacion.html"><i class="far fa-address-card"></i></a>
+            <a href="Materias.html"><i class="fas fa-laptop-code"></i></a>
+            <a href="Programa.html"><i class="fas fa-chart-bar"></i></a>
+        </nav>
+
+        <div class="contenido">
+            <div class="introduccion">
+                <h2>Validación de datos en un formulario</h2>
+                <br>
+                <p>A continuación, podrás observar la imagen de un formulario en el cual podrás ingresar dos tipos diferentes de información. En el primer campo de entrada se solicita ingresar el nombre de un producto, mientras que en el segundo campo de entrada, de tipo numérico, se solicita ingresar la cantidad o precio del producto previamente mencionado. Esto se hace para extraer dicha información y generar nuevos precios. A los precios obtenidos se les aplicará la inflación correspondiente a cada mes de este año, generando así los nuevos precios mencionados anteriormente.</p>
+                <br><br>
+                <img src="img/form1.png" alt="campos_inputs">
+                <br><br>
+                <p>
+                Al final de estos campos, se puede observar la implementación de un campo de entrada de tipo "submit". Al hacer clic en este campo, se ejecutará una función encargada de validar los datos ingresados por el usuario. Más adelante, se explicará en detalle la función que se ejecuta y cómo se validan los datos.</p> <br><br>
+                <img src="img/form2.png" alt="campos_boton">
+                <br><br>
+                <p>La siguiente imagen muestra el aspecto real del formulario utilizado como ejemplo para la validación de datos. A continuación, se presenta otra imagen que representa el mismo formulario, pero con la incorporación de un mensaje dirigido al usuario en caso de haber ingresado datos de manera incorrecta.</p> <br><br>
+                <img src="img/form.png" alt="formulario">
+                <br><br>
+                <img src="img/error.png" alt="formulario">
+                <br><br>
+                <h2>Codigo</h2>
+                <br><br>
+                <img src="img/code.png" alt="formulario">
+                <br><br>
+                <p>La siguiente imagen muestra el código utilizado para validar los datos que hemos introducido. Comenzaremos creando una función que se ejecutará al hacer clic en el botón del formulario. A continuación, se ejecutará la segunda línea de código, que se utiliza para prevenir el comportamiento predeterminado de un evento.</p>
+                <br><br>
+                <img src="img/code1.png" alt="formulario">
+                <br><br>
+                <p>Después, haremos uso del objeto global "campos" y luego crearemos un objeto adicional llamado "precios". En el objeto "campos" se almacenarán los nombres de los productos ingresados, mientras que en el objeto "precios" se guardarán los precios correspondientes a dichos productos.</p>
+                <br>
+                <p>Al asignar los nombres de los productos al objeto "campos", aplicaremos la función "trim()" para eliminar cualquier espacio en blanco adicional que puedan tener. Esta función es útil para eliminar los espacios sobrantes.</p>
+                <br>
+                <p>En el segundo objeto, le cambiaremos el tipo de dato a los precios de los productos y pasaran a ser de tipo número.</p>
+                <br><br>
+                <img src="img/code2.png" alt="formulario">
+                <br><br>
+                <p>En esta línea de código, se extraen los nombres de los productos. Sin embargo, estos datos se someten a una sencilla limpieza utilizando la función "trim()" mencionada anteriormente.</p>
+
+                <p>También se puede observar que se declara una estructura condicional "if" que compara el contenido de las variables "produ1" y "produ2" con comillas simples, representando un string vacío.</p>
+                    
+                <p>El resto del código se encarga de verificar que los precios de los productos sean menores o iguales a cero. En caso de que se cumpla esta condición y los nombres de los productos sean igual a un string vacío, se procede a crear un mensaje para el usuario.</p>
+                <br><br>
+                <img src="img/code3.png" alt="formulario">
+                <br><br>
+                <p>Antes de crear el mensaje, nos aseguramos de que exista la clase "alert". Esto se hace para evitar la creación de múltiples mensajes de advertencia para el usuario. Si la clase no existe, se crea el mensaje; de lo contrario, no se crea.</p> <br>
+                <p>Para crear el mensaje, primero declaramos una variable que representará una etiqueta HTML, específicamente la etiqueta de párrafo. Luego, introducimos el mensaje del usuario en la etiqueta y le asignamos dos clases: "alerta" y "aler". La clase "alerta" se utiliza para personalizarlo con CSS, y luego agregamos el mensaje al documento HTML.</p> <br>
+                <p>Usamos setTimeout para indicar que el mensaje se mostrará durante solo 3 segundos y luego se eliminará completamente del documento HTML.</p> 
+                <br><br>
+                <img src="img/code4.png" alt="formulario">
+                <br><br>
+                <a href="Programa.html" class="btn">Ver programa</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
